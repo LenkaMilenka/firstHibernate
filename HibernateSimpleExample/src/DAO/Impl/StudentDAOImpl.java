@@ -19,6 +19,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session.save(stud);
                 session.getTransaction().commit();
             } catch (Exception e) {
+            	System.out.println(e);
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
@@ -35,6 +36,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session.update(stud);
                 session.getTransaction().commit();
             } catch (Exception e) {
+            	System.out.println(e);
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
@@ -50,6 +52,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session = HibernateUtil.getSessionFactory().openSession();
                 stud = (Student) session.load(Student.class, id);
             } catch (Exception e) {
+            	System.out.println(e);
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
@@ -66,6 +69,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session = HibernateUtil.getSessionFactory().openSession();
                 studs = session.createCriteria(Student.class).list();
             } catch (Exception e) {
+            	System.out.println(e);
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
@@ -83,6 +87,7 @@ public class StudentDAOImpl implements StudentDAO {
                 session.delete(stud);
                 session.getTransaction().commit();
             } catch (Exception e) {
+            	System.out.println(e);
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
             } finally {
                 if (session != null && session.isOpen()) {
