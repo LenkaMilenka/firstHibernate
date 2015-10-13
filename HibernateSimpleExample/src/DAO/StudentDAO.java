@@ -11,4 +11,5 @@ public interface StudentDAO {
     public Student getStudentById(int id) throws SQLException;    //получить стедента по id
     public List getAllStudents() throws SQLException;              //получить всех студентов
     public void deleteStudent(Student student) throws SQLException;//удалить студента
+	public List selectUserByAge(int _age)throws SQLException;
 }

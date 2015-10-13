@@ -42,7 +42,7 @@ public class Main {
         }
         
         
-        Student sdel = Factory.getInstance().getStudentDAO().getStudentById(3);
+       /* Student sdel = Factory.getInstance().getStudentDAO().getStudentById(3);
        // System.out.println("DEL id = " + sdel.getId() + ", name = " + sdel.getName());
         Factory.getInstance().getStudentDAO().deleteStudent(sdel);
         
@@ -51,9 +51,14 @@ public class Main {
         for(int i = 0; i < students.size(); i++){
         	System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName() + 
         			", age : " + students.get(i).getAge());
+        }*/
+        
+        System.out.println("\n--------After SELECT by age-----------");  
+        students = Factory.getInstance().getStudentDAO().selectUserByAge(17);
+        for(int i = 0; i < students.size(); i++){
+        	System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName() + 
+        			", age : " + students.get(i).getAge());
         }
-        
-        
         
         
         
@@ -69,5 +74,7 @@ public class Main {
                 System.out.println("Имя студента : " + studs.get(i).getName() + ", Возраст : " + studs.get(i).getAge() +",  id : " + studs.get(i).getId());
                 System.out.println("=============================");              
         }    */   
+        
+        System.exit(1);
     }
 }
