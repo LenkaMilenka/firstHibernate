@@ -121,6 +121,9 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * get list student by age
+	 */
 	private static void selectByAge(){
 		try{
 		System.out.print("Enter age of student: ");
