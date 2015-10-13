@@ -138,7 +138,7 @@ public class StudentDAOImpl implements StudentDAO {
 	}
 
 	/**
-	 * Gel list student by age = @param age
+	 * Gel list students by age = @param age
 	 * 
 	 * @see DAO.StudentDAO#selectUserByAge(int)
 	 * @param age
@@ -163,6 +163,10 @@ public class StudentDAOImpl implements StudentDAO {
 		return studs;
 	}
 
+	/** Get list students by name%
+	 * @see DAO.StudentDAO#selectUSerByName(java.lang.String)
+	 * @param _name - student's name
+	 */
 	public List<Student> selectUSerByName(String _name) throws SQLException {
 		Session session = null;
 		List<Student> studs = new ArrayList<Student>();
@@ -179,4 +183,27 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 		return studs;
 	}
+	
+	/**
+	 * Get list through SQLQuery
+	 * @return list with students
+	 * @throws SQLException
+	 */
+	public List<Student> selectSQLExecute() throws SQLException{
+		List<Student> studs = new ArrayList<Student>();
+		Session session = null;
+		try{
+			session = HibernateUtil.getSessionFactory().openSession();					
+			session.createSQLQuery("select * from Student").addEntity(Student.class).list();
+		}catch (Exception e) {
+			System.out.println(e);
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+		} finally {
+			if (session != null && session.isOpen()) {
+				session.close();
+			}
+		}
+		return studs;
+	}
+	
 }
