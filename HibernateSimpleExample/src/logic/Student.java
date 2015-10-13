@@ -8,6 +8,10 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * @author Lena Korsak
+ *
+ */
 @Entity
 @Table(name="Student")
 public class Student {

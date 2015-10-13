@@ -5,11 +5,15 @@ import java.util.List;
 
 import logic.Student;
 
+/**
+ * @author Lena Korsak
+ *
+ */
 public interface StudentDAO {
-    public void addStudent(Student student) throws SQLException;   //добавить студента
-    public void updateStudent(Student student) throws SQLException;//обновить студента
-    public Student getStudentById(int id) throws SQLException;    //получить стедента по id
-    public List getAllStudents() throws SQLException;              //получить всех студентов
-    public void deleteStudent(Student student) throws SQLException;//удалить студента
-	public List selectUserByAge(int _age)throws SQLException;
+    public void addStudent(Student student) throws SQLException;   //add student
+    public void updateStudent(Student student) throws SQLException;//update student
+    public Student getStudentById(int id) throws SQLException;    //get student by id
+    public List<Student> getAllStudents() throws SQLException;              //get all student
+    public void deleteStudent(Student student) throws SQLException;//delete student
+	public List<Student> selectUserByAge(int _age)throws SQLException;
 }

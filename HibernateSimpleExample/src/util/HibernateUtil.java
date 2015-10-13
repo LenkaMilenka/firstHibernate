@@ -3,6 +3,10 @@ package util;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+/**
+ * @author Lena Korsak
+ *
+ */
 public class HibernateUtil {
     private static SessionFactory sessionFactory = null;
     
