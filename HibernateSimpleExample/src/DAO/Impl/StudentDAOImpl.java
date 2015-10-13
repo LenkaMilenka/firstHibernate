@@ -51,6 +51,7 @@ public class StudentDAOImpl implements StudentDAO {
             try {
                 session = HibernateUtil.getSessionFactory().openSession();
                 stud = (Student) session.load(Student.class, id);
+                System.out.println("In UPDATE! id = " + stud.getId() + " name = " + stud.getName());
             } catch (Exception e) {
             	System.out.println(e);
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);

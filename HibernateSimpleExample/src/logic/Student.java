@@ -24,6 +24,11 @@ public class Student {
         name = s.getName();
     }   
     
+    public Student(String _name, int _age){
+        name = _name;
+        age = _age;
+    }   
+    
 	@Id
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")

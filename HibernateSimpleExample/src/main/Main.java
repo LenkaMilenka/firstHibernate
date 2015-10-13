@@ -10,26 +10,64 @@ import DAO.Factory;
 public class Main {
     
     public static void main(String[] args) throws SQLException {
-        //Создадим двух студентов
-        Student s1 = new Student();
-        Student s2 = new Student();
+       
+    	
+    	 System.out.println("--------All srudents-----------");
+    	 List<Student> students = Factory.getInstance().getStudentDAO().getAllStudents();
+         for(int i = 0; i < students.size(); i++){
+         	System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName() + 
+         			", age : " + students.get(i).getAge());
+         }
+         
+         Student stud = new Student("Ololosha", 17);
+        Factory.getInstance().getStudentDAO().addStudent(stud);
         
-        //Проинициализируем их
-        s1.setName("Ivanov Ivan");
-        s1.setAge(21);
-        s2.setName("Petrova Alisa");
-        s2.setAge(24);
+        System.out.println("\n--------AAfter ADD-----------");
+   	 	students = Factory.getInstance().getStudentDAO().getAllStudents();
+        for(int i = 0; i < students.size(); i++){
+        	System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName() + 
+        			", age : " + students.get(i).getAge());
+        }
+    	
+        Student sup = Factory.getInstance().getStudentDAO().getStudentById(4);
+        sup.setAge(22);
+        sup.setName("Test!");
+        Factory.getInstance().getStudentDAO().updateStudent(sup);
+        
+        System.out.println("\n--------After update-----------");
+        students = Factory.getInstance().getStudentDAO().getAllStudents();
+        for(int i = 0; i < students.size(); i++){
+        	System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName() + 
+        			", age : " + students.get(i).getAge());
+        }
+        
+        
+        Student sdel = Factory.getInstance().getStudentDAO().getStudentById(3);
+       // System.out.println("DEL id = " + sdel.getId() + ", name = " + sdel.getName());
+        Factory.getInstance().getStudentDAO().deleteStudent(sdel);
+        
+        System.out.println("\n--------After delete-----------");        
+        students = Factory.getInstance().getStudentDAO().getAllStudents();
+        for(int i = 0; i < students.size(); i++){
+        	System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName() + 
+        			", age : " + students.get(i).getAge());
+        }
+        
+        
+        
+        
+        
                 
         //Сохраним их в бд, id будут сгенерированы автоматически
-        Factory.getInstance().getStudentDAO().addStudent(s1);
-        Factory.getInstance().getStudentDAO().addStudent(s2);       
+       // Factory.getInstance().getStudentDAO().addStudent(s1);
+      //  Factory.getInstance().getStudentDAO().addStudent(s2);       
         
         //Выведем всех студентов из бд
-        List<Student> studs = Factory.getInstance().getStudentDAO().getAllStudents();
+       /* List<Student> studs = Factory.getInstance().getStudentDAO().getAllStudents();
         System.out.println("========Все студенты=========");
         for(int i = 0; i < studs.size(); ++i) {
                 System.out.println("Имя студента : " + studs.get(i).getName() + ", Возраст : " + studs.get(i).getAge() +",  id : " + studs.get(i).getId());
                 System.out.println("=============================");              
-        }       
+        }    */   
     }
 }
