@@ -2,6 +2,10 @@ package DAO;
 
 import DAO.Impl.StudentDAOImpl;
 
+/**
+ * @author Lena Korsak
+ *
+ */
 public class Factory {
       
       private static StudentDAO studentDAO = null;

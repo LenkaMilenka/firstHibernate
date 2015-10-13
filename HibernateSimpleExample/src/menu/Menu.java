@@ -25,9 +25,10 @@ public class Menu {
 				System.out.println("1 - Add student");
 				System.out.println("2 - Delete student");
 				System.out.println("3 - Update student");
-				System.out.println("4 - Execute the query");
+				System.out.println("4 - Show student by age");
 				System.out.println("5 - Show all student");
-				System.out.println("6 - exit");
+				System.out.println("6 - Show student by name");
+				System.out.println("7 - exit");
 				int search = Integer.parseInt(in.next());
 				switch(search){
 				case 1 :
@@ -48,7 +49,11 @@ public class Menu {
 					showAllStudent();
 					break;
 				case 6:
+					selectByName();
+					break;
+				case 7:
 					System.exit(0);
+					break;
 				}
 			} catch (Exception e) {
 				System.out.println("You entered not a number!\n Enter the command, please.");
@@ -132,6 +137,19 @@ public class Menu {
 	        	System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName() + 
 	        			", age : " + students.get(i).getAge());
 	        }
+		}catch(SQLException e){
+			System.out.println(e);
+		}
+	}
+	
+	private static void selectByName(){
+		try{
+			System.out.print("Enter name of student: ");
+			 List<Student> students = Factory.getInstance().getStudentDAO().selectUSerByName(in.next());
+		        for(int i = 0; i < students.size(); i++){
+		        	System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName() + 
+		        			", age : " + students.get(i).getAge());
+		        }
 		}catch(SQLException e){
 			System.out.println(e);
 		}

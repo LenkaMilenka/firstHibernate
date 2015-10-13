@@ -18,9 +18,12 @@ import logic.Student;
  */
 public class StudentDAOImpl implements StudentDAO {
 
-	/** Addition student to database
+	/**
+	 * Addition student to database
+	 * 
 	 * @see DAO.StudentDAO#addStudent(logic.Student)
-	 * @param stud - student
+	 * @param stud
+	 *            - student
 	 */
 	public void addStudent(Student stud) throws SQLException {
 		Session session = null;
@@ -39,9 +42,12 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 	}
 
-	/** update student in the database
+	/**
+	 * update student in the database
+	 * 
 	 * @see DAO.StudentDAO#updateStudent(logic.Student)
-	 * @param stud - student
+	 * @param stud
+	 *            - student
 	 */
 	public void updateStudent(Student stud) throws SQLException {
 		Session session = null;
@@ -60,9 +66,12 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 	}
 
-	/** Get student by id
+	/**
+	 * Get student by id
+	 * 
 	 * @see DAO.StudentDAO#getStudentById(int)
-	 * @param id - student's id
+	 * @param id
+	 *            - student's id
 	 */
 	public Student getStudentById(int id) throws SQLException {
 		Session session = null;
@@ -82,7 +91,9 @@ public class StudentDAOImpl implements StudentDAO {
 		return stud;
 	}
 
-	/** Get list all students
+	/**
+	 * Get list all students
+	 * 
 	 * @see DAO.StudentDAO#getAllStudents()
 	 */
 	public List<Student> getAllStudents() throws SQLException {
@@ -102,9 +113,12 @@ public class StudentDAOImpl implements StudentDAO {
 		return studs;
 	}
 
-	/** delete student in the database
+	/**
+	 * delete student in the database
+	 * 
 	 * @see DAO.StudentDAO#deleteStudent(logic.Student)
-	 * @param stud - srudent
+	 * @param stud
+	 *            - srudent
 	 */
 	public void deleteStudent(Student stud) throws SQLException {
 		Session session = null;
@@ -123,9 +137,12 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 	}
 
-	/** Gel list student by age = @param age
+	/**
+	 * Gel list student by age = @param age
+	 * 
 	 * @see DAO.StudentDAO#selectUserByAge(int)
-	 * @param age - age of student
+	 * @param age
+	 *            - age of student
 	 */
 	@SuppressWarnings("deprecation")
 	public List<Student> selectUserByAge(int _age) throws SQLException {
@@ -133,13 +150,25 @@ public class StudentDAOImpl implements StudentDAO {
 		List<Student> studs = new ArrayList<Student>();
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
-			//studs = session.createCriteria(Student.class).add(Expression.like("name", "Ivanov%"))
-				//	.add(Expression.between("age", 18, 25)).list();
-
 			studs = session.createCriteria(Student.class).add(Expression.eq("age", _age)).list();
-			
-			//studs = session.createCriteria(Student.class).add(Expression.like("name", "_van%"))
-			//		.add(Expression.or(Expression.eq("age", new Integer(20)), Expression.isNull("age"))).list();
+
+		} catch (Exception e) {
+			System.out.println(e);
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+		} finally {
+			if (session != null && session.isOpen()) {
+				session.close();
+			}
+		}
+		return studs;
+	}
+
+	public List<Student> selectUSerByName(String _name) throws SQLException {
+		Session session = null;
+		List<Student> studs = new ArrayList<Student>();
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			studs = session.createCriteria(Student.class).add(Expression.like("name", "" + _name + "%")).list();
 		} catch (Exception e) {
 			System.out.println(e);
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
