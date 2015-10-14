@@ -10,6 +10,10 @@ import util.HibernateUtil;
 import DAO.TestDAO;
 import logic.Test;
 
+/**
+ * @author Lena Korsak
+ *
+ */
 public class TestDAOImpl implements TestDAO {
 		public void addTest(Test test) throws SQLException {
 		    Session session = null;

@@ -11,6 +11,10 @@ import javax.persistence.JoinColumn;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * @author Lena Korsak
+ *
+ */
 @Entity
 @Table(name="Test")
 public class Test {
@@ -53,4 +57,6 @@ public class Test {
 	public void setTName(String s){
 		tname = s;
 	}		
+	
+	
 }

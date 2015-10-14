@@ -87,7 +87,7 @@ public class Menu {
 	private static void showAllStudent() {
 		try {
 			List<Student> students = Factory.getInstance().getStudentDAO().getAllStudents();
-			System.out.println("--------All srudents-----------");
+			System.out.println("--------All students-----------");
 			for (int i = 0; i < students.size(); i++) {
 				System.out.println("ID : " + students.get(i).getId() + ", Name : " + students.get(i).getName()
 						+ ", age : " + students.get(i).getAge());

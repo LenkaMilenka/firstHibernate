@@ -8,13 +8,17 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * @author Lena Korsak
+ *
+ */
 @Entity
 @Table(name="Statistics")
 public class Statistics {	
 	
 	private int stid;	
-	private int fk_id;	
-	private int fk_tid;
+	private int id;	
+	private int tid;
 		
 	public Statistics(){		
 	}
@@ -27,13 +31,13 @@ public class Statistics {
 		return stid;
 	}
 	
-	@Column(name="fk_id")
+	@Column(name="id")
 	public int getId(){
-		return fk_id;
+		return id;
 	}
 	
-	@Column(name="fk_tid")
+	@Column(name="tid")
 	public int getTid(){
-		return fk_tid;
+		return tid;
 	}
 }
