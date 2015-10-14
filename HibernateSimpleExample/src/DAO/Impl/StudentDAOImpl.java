@@ -193,16 +193,16 @@ public class StudentDAOImpl implements StudentDAO {
 	/**
 	 * Get student's list by name through SQLQuery
 	 * @return list with students
+	 * @param _name - student's name
 	 * @throws SQLException
 	 */
-	public List<Student> selectSQLExecute(String _name) throws SQLException{
+	public List<Student> selectSQLExecute(String _name){
 		List<Student> studs = new ArrayList<Student>();
 		Session session = null;
 		try{
-			session = HibernateUtil.getSessionFactory().openSession();					
-			session.createSQLQuery("select * from Student").addEntity(Student.class).list();
-			Query query = session.createSQLQuery("select * from Student where name like :name").addEntity(Student.class);
-			List<Student> result = query.setString("name", _name + "%").list();
+			session = HibernateUtil.getSessionFactory().openSession();	
+			Query query = session.createSQLQuery("select * from Student where name like ?").addEntity(Student.class);
+			studs = query.setString(0, _name + "%").list();
 		}catch (Exception e) {
 			System.out.println(e);
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);

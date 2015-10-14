@@ -17,4 +17,5 @@ public interface StudentDAO {
     public void deleteStudent(Student student) throws SQLException;//delete student
 	public List<Student> selectUserByAge(int _age)throws SQLException;// get list student by age
 	public List<Student> selectUSerByName(String _name) throws SQLException;// get list student by name
+	public List<Student> selectSQLExecute(String _name); // get list student by name through sql execute
 }
