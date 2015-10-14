@@ -14,5 +14,6 @@
 
         <mapping class ="logic.Student" />
 
+
     </session-factory>
 </hibernate-configuration>

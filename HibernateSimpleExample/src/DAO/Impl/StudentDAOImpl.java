@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Expression;
@@ -213,5 +214,23 @@ public class StudentDAOImpl implements StudentDAO {
 		}
 		return studs;
 	}
+	
+	 public List<Student> testFunc(){
+		  Session session = null;
+		    List<Student> studs = new ArrayList<Student>();
+		    try {
+		    	session = HibernateUtil.getSessionFactory().openSession();
+		    	Criteria crit = session.createCriteria(Student.class);
+		    	crit.setMaxResults(50);
+		    	studs = crit.list();
+		    } catch (Exception e) {
+		    	JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+		    } finally {
+		    	if (session != null && session.isOpen()) {
+		    		session.close();
+		    	}
+		    }
+		    return studs;		  
+	  }
 	
 }

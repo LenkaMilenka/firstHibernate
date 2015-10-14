@@ -9,6 +9,7 @@ import DAO.Impl.StudentDAOImpl;
 public class Factory {
       
       private static StudentDAO studentDAO = null;
+      private static TestDAO testDAO = null;
       private static Factory instance = null;
 
       public static synchronized Factory getInstance(){
@@ -24,4 +25,11 @@ public class Factory {
             }
             return studentDAO;
       }   
+      
+      public TestDAO getTestDAO(){
+		    if (studentDAO == null){
+		      studentDAO = new StudentDAOImpl();
+		    }
+		    return testDAO;
+	  }	  
 }
