@@ -52,7 +52,7 @@ public class TestDAOImpl implements TestDAO {
 		    Test test = null;
 		    try {
 		    	session = HibernateUtil.getSessionFactory().openSession();
-		    	test = (Test) session.load(Test.class, id);
+		    	test = session.load(Test.class, id);
 		    } catch (Exception e) {
 		    	JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
 		    } finally {
