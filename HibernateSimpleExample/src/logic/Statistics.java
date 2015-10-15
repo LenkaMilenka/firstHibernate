@@ -23,6 +23,10 @@ public class Statistics {
 	public Statistics(){		
 	}
 		
+	/**
+	 * Getter Stid
+	 * @return stid - ID from table Statistics
+	 */
 	@Id
 	@GeneratedValue(generator="increment")
 	@GenericGenerator(name="increment", strategy = "increment")
@@ -31,11 +35,17 @@ public class Statistics {
 		return stid;
 	}
 	
+	/**Get id
+	 * @return id - fk student from table Statistics
+	 */
 	@Column(name="id")
 	public int getId(){
 		return id;
 	}
 	
+	/**Get Tid
+	 * @return tid - fk Test from table Statistics 
+	 */
 	@Column(name="tid")
 	public int getTid(){
 		return tid;

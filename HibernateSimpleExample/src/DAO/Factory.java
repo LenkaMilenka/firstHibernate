@@ -12,21 +12,30 @@ public class Factory {
       private static TestDAO testDAO = null;
       private static Factory instance = null;
 
-      public static synchronized Factory getInstance(){
+      /**Get instance
+     * @return instance - Factory's object
+     */
+    public static synchronized Factory getInstance(){
             if (instance == null){
               instance = new Factory();
             }
             return instance;
       }
 
-      public StudentDAO getStudentDAO(){
+      /**Get SrudentDAO
+     * @return studentDAO - StudentDAO's object
+     */
+    public StudentDAO getStudentDAO(){
             if (studentDAO == null){
               studentDAO = new StudentDAOImpl();
             }
             return studentDAO;
       }   
       
-      public TestDAO getTestDAO(){
+      /**Get TestDAO
+     * @return testDAO - TestDAO's object
+     */
+    public TestDAO getTestDAO(){
 		    if (studentDAO == null){
 		      studentDAO = new StudentDAOImpl();
 		    }

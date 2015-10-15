@@ -13,7 +13,7 @@ import logic.Student;
  *
  */
 public class Menu {
-	public static Scanner in = new Scanner(System.in);
+	private static Scanner in = new Scanner(System.in);
 
 	/**
 	 * show menu

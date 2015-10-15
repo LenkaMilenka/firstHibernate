@@ -73,7 +73,7 @@ public class StudentDAOImpl implements StudentDAO {
 	 * 
 	 * @see DAO.StudentDAO#getStudentById(int)
 	 * @param id - student's id
-	 * @return student's by id
+	 * @return student by id
 	 * @throws SQLException
 	 */
 	public Student getStudentById(int id) throws SQLException {
@@ -99,6 +99,7 @@ public class StudentDAOImpl implements StudentDAO {
 	 * 
 	 * @see DAO.StudentDAO#getAllStudents()
 	 * @throws SQLException
+	 * @return studs - student's list
 	 */
 	public List<Student> getAllStudents() throws SQLException {
 		Session session = null;
@@ -165,7 +166,9 @@ public class StudentDAOImpl implements StudentDAO {
 				session.close();
 			}
 		}
+		
 		return studs;
+		
 	}
 
 	/** Get list students by name%
@@ -195,7 +198,6 @@ public class StudentDAOImpl implements StudentDAO {
 	 * Get student's list by name through SQLQuery
 	 * @return list with students
 	 * @param _name - student's name
-	 * @throws SQLException
 	 */
 	public List<Student> selectSQLExecute(String _name){
 		List<Student> studs = new ArrayList<Student>();
@@ -215,7 +217,11 @@ public class StudentDAOImpl implements StudentDAO {
 		return studs;
 	}
 	
-	 public List<Student> testFunc(){
+	 /**Probably, delete all students
+	 * @see DAO.StudentDAO#testFunc()
+	 * @return studs - student's list
+	 */
+	public List<Student> testFunc(){
 		  Session session = null;
 		    List<Student> studs = new ArrayList<Student>();
 		    try {

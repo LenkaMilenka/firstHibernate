@@ -15,6 +15,11 @@ import logic.Test;
  *
  */
 public class TestDAOImpl implements TestDAO {
+		/** Addition test
+		 * @see DAO.TestDAO#addTest(logic.Test)
+		 * @param test - test
+		 * @throws SQLException
+		 */
 		public void addTest(Test test) throws SQLException {
 		    Session session = null;
 		    try {
@@ -31,7 +36,12 @@ public class TestDAOImpl implements TestDAO {
 		    }
 	  }
 	
-	  public void updateTest(Test test) throws SQLException {
+	  /** Update test
+	 * @see DAO.TestDAO#updateTest(logic.Test)
+	 * @param test - test
+	 * @throws SQLException
+	 */
+	public void updateTest(Test test) throws SQLException {
 		    Session session = null;
 		    try {
 		    	session = HibernateUtil.getSessionFactory().openSession();
@@ -47,7 +57,12 @@ public class TestDAOImpl implements TestDAO {
 		    }
 	  }
 	
-	  public Test getTestById(int id) throws SQLException {
+	  /** Get test by id
+	 * @see DAO.TestDAO#getTestById(int)
+	 * @param id - test's id
+	 * @throws SQLException
+	 */
+	public Test getTestById(int id) throws SQLException {
 		    Session session = null;
 		    Test test = null;
 		    try {
@@ -63,7 +78,12 @@ public class TestDAOImpl implements TestDAO {
 		    return test;
 	  }
 	
-	  public List<Test> getAllTests() throws SQLException {
+	  /** Get All tests
+	 * @see DAO.TestDAO#getAllTests()
+	 * @return tests - list with test
+	 * @throws SQLException
+	 */
+	public List<Test> getAllTests() throws SQLException {
 		    Session session = null;
 		    List<Test> tests = new ArrayList<Test>();
 		    try {
@@ -79,7 +99,12 @@ public class TestDAOImpl implements TestDAO {
 		    return tests;
 	  }
 	
-	  public void deleteTest(Test test) throws SQLException {
+	  /** Delete test
+	 * @see DAO.TestDAO#deleteTest(logic.Test)
+	 * @param test - deleted test
+	 * @throws SQLException
+	 */
+	public void deleteTest(Test test) throws SQLException {
 		    Session session = null;
 		    try {
 		    	session = HibernateUtil.getSessionFactory().openSession();
